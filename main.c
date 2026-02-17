@@ -40,9 +40,8 @@ int main(){
             option_status = scanf("%d", &option);
         }
         // printf("%d\n%d", option, &option);return 0;
-        while(!(option >= 1 && option <= 5)){
-            printf("Operation not found!\nChoose again: ");
-            scanf("%*s");
+        while(option < 1 || option > 5){
+            printf("Operation not found!\nOption: ");
             option_status = scanf("%d", &option);
             while(option_status == 0){
                 printf("Invalid prompt! Check again.\nOption: ");
