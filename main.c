@@ -42,11 +42,13 @@ int main(){
         // printf("%d\n%d", option, &option);return 0;
         while(!(option >= 1 && option <= 5)){
             printf("Operation not found!\nChoose again: ");
-        while(option_status == 0){
-            printf("Invalid prompt! Check again.\nOption: ");
             scanf("%*s");
             option_status = scanf("%d", &option);
-        }
+            while(option_status == 0){
+                printf("Invalid prompt! Check again.\nOption: ");
+                scanf("%*s");
+                option_status = scanf("%d", &option);
+            }
         }
         if(option != 5){
             printf("Enter the first number: ");
