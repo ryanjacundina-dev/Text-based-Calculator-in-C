@@ -28,15 +28,20 @@ void calculate(int option, float n1, float n2){
     printf(" %.2f = %.2f\n", n2, operation);
 }
 int main(){
-    int option, repeat = 1;
+    int option, repeat = 1, option_status;
     float n1, n2;
     char res;
     while(repeat == 1){
         printf("===============================\nSimple Calculator\n===============================\nSelect an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exit\nOption: ");
-        scanf("%d", &option);
+        option_status = scanf("%d", &option);
+        while(option_status == 0){
+            printf("Invalid prompt! Check again.\nOption: ");
+            scanf("%*s");
+            option_status = scanf("%d", &option);
+        }
         // printf("%d\n%d", option, &option);return 0;
         while(!(option >= 1 && option <= 5)){
-            printf("Operation not finded!\nChoose again: ");
+            printf("Operation not found!\nChoose again: ");
             scanf("%d", &option);
         }
         if(option != 5){
