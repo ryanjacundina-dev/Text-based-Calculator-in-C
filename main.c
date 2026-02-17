@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 void calculate(int option, int n1, int n2){
     if(option == 4 && n2 == 0){
         printf("Error: Division by zero is not allowed.\n");
@@ -32,6 +33,7 @@ int main(){
     while(repeat == 1){
         printf("===============================\nSimple Calculator\n===============================\nSelect an operation:\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exit\nOption: ");
         scanf("%d", &option);
+        // printf("%d\n%d", option, &option);return 0;
         while(!(option >= 1 && option <= 5)){
             printf("Operation not finded!\nChoose again: ");
             scanf("%d", &option);
@@ -49,9 +51,11 @@ int main(){
         res = '0';
         printf("Do you want to perform another operation? (y/n): ");
         scanf(" %c", &res);
+        res = tolower(res);
         while(res != 'y' && res != 'n'){
             printf("Invalid response. Please type 'y' for yes or 'n' for no.\nDo you want to perform another operation? (y/n): ");
             scanf(" %c", &res);
+            res = tolower(res);
         }
         if(res != 'y') repeat = 0;
     }
